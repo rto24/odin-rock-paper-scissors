@@ -9,16 +9,16 @@ function getComputerChoice() {
   } else {
     computerSelection = 'Scissors';
   }
-}
+};
 
-let playerInput = (prompt ("Choose Rock, Paper, or Scissors"))
+let playerInput = (prompt ("Choose Rock, Paper, or Scissors"));
 
 const playerSelection = playerInput;
 
 let result = '';
 
 function playRound(playerSelection, computerSelection) {
-
+  
   if (playerSelection === 'Rock') {
     if (computerSelection === 'Rock') {
       result = "It's a Tie!";
@@ -51,7 +51,7 @@ console.log(playRound(playerSelection, computerSelection));
 let score = {
   playerScore: 0,
   computerScore: 0
-}
+};
 
 function game() {
   playRound(playerSelection, computerSelection);
@@ -64,9 +64,13 @@ function game() {
     score.computerScore++;
   }
   return score;
-}
+};
+
+for (let i = 1; i < 5; i++) game();
 
 console.log(game());
+
+
 
   
 

@@ -67,8 +67,19 @@ function game() {
 };
 
 for (let i = 1; i < 5; i++) game();
+  
+function endMessage() {   
+  let resetStatement = "";
+  if (score.playerScore === 5 || score.computerScore === 5 || result === "It's a Tie!") {
+    resetStatement = "Please refresh to play again!";
+  }
+  return resetStatement;
+}
 
 console.log(game());
+console.log(endMessage());
+
+
 
 
 

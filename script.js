@@ -3,6 +3,8 @@ let score = {
   computerScore: 0
 }; 
 
+updateScore();
+
 document.querySelector('.rock-btn').addEventListener('click', () => {
   playRound('Rock');
 });
@@ -54,11 +56,25 @@ function playRound(playerSelection) {
                  result === "You Lose! Rock beats Scissors") {
         score.computerScore += 1;        
       } 
+    
+    updateScore();
   
     document.querySelector('.result').textContent = result; 
     
+};
+
+function updateScore() {
+
+  document.querySelector('.score').textContent = `
+  Score: Player ${score.playerScore} Computer ${score.computerScore}`;
+
+  if (score.playerScore === 5) {
     document.querySelector('.score').textContent = `
-    Score: Player ${score.playerScore} Computer ${score.computerScore}`
+    Game over! Player wins`;
+  } else if (score.computerScore === 5) {
+    document.querySelector('.score').textContent = `
+    Game over! Computer wins`
+  }
 };
 
 function getComputerChoice() {
@@ -73,35 +89,6 @@ function getComputerChoice() {
   }
   return computerSelection;
 };
-
-
-
-/*
-function game() {
-  playRound(playerSelection, computerSelection);
-  if (result === "You Win! Rock beats Scissors" || result === "You Win! Paper beats Rock" || result === "You Win! Scossirs beats Paper") {
-    score.playerScore++;
-  } else if (result === "It's a Tie!") {
-    score.playerScore += 0;
-    score.computerScore += 0;
-  } else {
-    score.computerScore++;
-  }
-  return score;
-};
-*/
-
-/*
-for (let i = 1; i < 5; i++) game();
-  
-function endMessage() {   
-  let resetStatement = "";
-  if (score.playerScore === 5 || score.computerScore === 5 || result === "It's a Tie!") {
-    resetStatement = "Please refresh to play again!";
-  }
-  return resetStatement;
-}
-*/
 
 
 

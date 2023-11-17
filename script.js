@@ -1,3 +1,8 @@
+let score = {
+  playerScore: 0,
+  computerScore: 0
+}; 
+
 document.querySelector('.rock-btn').addEventListener('click', () => {
   playRound('Rock');
 });
@@ -39,14 +44,21 @@ function playRound(playerSelection) {
       } else if (computerSelection === 'Scissors' )
         result = "It's a Tie!";
     }
-    
+  
+  if (result === "You Win! Rock beats Scissors" ||
+      result === "You Win! Paper beats Rock" ||
+      result === "You Win! Scissors beats Paper") {
+        score.playerScore += 1;
+      } else if (result === "You Lose! Paper beats Rock" ||
+                 result === "You Lose! Scissors beats Paper" ||
+                 result === "You Lose! Rock beats Scissors") {
+        score.computerScore += 1;        
+      } 
+  
     document.querySelector('.result').textContent = result; 
-   
-};
-
-let score = {
-  playerScore: 0,
-  computerScore: 0
+    
+    document.querySelector('.score').textContent = `
+    Score: Player ${score.playerScore} Computer ${score.computerScore}`
 };
 
 function getComputerChoice() {

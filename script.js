@@ -1,23 +1,38 @@
-let computerSelection = '';
-
 function getComputerChoice() {
+  let computerSelection = '';
   let randomNum = Math.floor(Math.random() * 3 + 1);
   if (randomNum === 1) {
-    computerSelection = 'Rock';
+    computerSelection === 'Rock';
   } else if (randomNum === 2) {
-    computerSelection = 'Paper';
+    computerSelection === 'Paper';
   } else {
-    computerSelection = 'Scissors';
+    computerSelection === 'Scissors';
   }
+  return computerSelection;
 };
 
+/*
 let playerInput = (prompt ("Choose Rock, Paper, or Scissors"));
+*/
 
-const playerSelection = playerInput;
+let computerSelection = '';
 
-let result = '';
+document.querySelector('.rock-btn').addEventListener('click', () => {
+  playRound('Rock', computerSelection);
+});
+
+document.querySelector('.paper-btn').addEventListener('click', () => {
+  playRound('Paper', computerSelection);
+});
+
+document.querySelector('.scissors-btn').addEventListener('click', () => {
+  playRound('Scissors', computerSelection);
+});
+
 
 function playRound(playerSelection, computerSelection) {
+  
+  let result = '';
   
   if (playerSelection === 'Rock') {
     if (computerSelection === 'Rock') {
@@ -46,13 +61,14 @@ function playRound(playerSelection, computerSelection) {
     return result;
 };
 
-console.log(playRound(playerSelection, computerSelection));
+
 
 let score = {
   playerScore: 0,
   computerScore: 0
 };
 
+/*
 function game() {
   playRound(playerSelection, computerSelection);
   if (result === "You Win! Rock beats Scissors" || result === "You Win! Paper beats Rock" || result === "You Win! Scossirs beats Paper") {
@@ -65,7 +81,9 @@ function game() {
   }
   return score;
 };
+*/
 
+/*
 for (let i = 1; i < 5; i++) game();
   
 function endMessage() {   
@@ -75,9 +93,11 @@ function endMessage() {
   }
   return resetStatement;
 }
+*/
 
-console.log(game());
-console.log(endMessage());
+
+
+
 
 
 
